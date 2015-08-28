@@ -22,7 +22,7 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
     
-    vector<ofVboMesh> mesh;
+    ofMesh mesh;
     float time, noise;
 
    
