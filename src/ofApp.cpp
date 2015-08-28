@@ -5,7 +5,7 @@ void ofApp::setup(){
     
     ofBackground(ofColor::black);
 
-    mesh.setMode(OF_PRIMITIVE_POINTS);
+    mesh.setMode(OF_PRIMITIVE_LINE_LOOP);
 
     
     time = 0.0;
@@ -32,11 +32,11 @@ void ofApp::update(){
         for (float v = 0.0; v < PI; v += PI / 100) {
             
             float size = 150;
-            float x = sin(v + time + u / 2) * size;
+            float x = sin(time + u) * size;
             float y = sin(v + u) * ofNoise(u + time) * size;
             float z = sin(u * cos(v)) * size;
             
-            ofFloatColor c = ofFloatColor(1.,0.9,0.9, u * 0.5);
+            ofFloatColor c = ofFloatColor(1.,0.9,0.9, u * 0.10);
             mesh.addColor(c);
             
             ofVec3f vec = ofVec3f(x,y,z);
@@ -45,7 +45,7 @@ void ofApp::update(){
         }
     }
     
-    
+    cout << "Frame Rate: " << ofGetFrameRate() << endl;
 }
 
 //--------------------------------------------------------------
