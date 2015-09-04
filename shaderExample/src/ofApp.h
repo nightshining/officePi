@@ -1,4 +1,3 @@
-// Copyright 2015 Patricio Gonzalez Vivo (http://patriciogonzalezvivo.com)
 
 #pragma once
 
@@ -21,4 +20,6 @@ public:
     void gotMessage(ofMessage msg);
     
     ofShader shader;
+
 };
+

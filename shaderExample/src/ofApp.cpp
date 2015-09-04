@@ -1,4 +1,3 @@
-// Copyright 2015 Patricio Gonzalez Vivo (http://patriciogonzalezvivo.com)
 
 #include "ofApp.h"
 
@@ -9,7 +8,9 @@ void ofApp::setup(){
     //
     shader.load("","shader.frag");
     ofSetCircleResolution(60);
-    ofBackground(0);
+    ofBackground(ofColor::whiteSmoke);
+    
+
 }
 
 //--------------------------------------------------------------
@@ -27,11 +28,21 @@ void ofApp::draw(){
     shader.setUniform1f("u_time", ofGetElapsedTimef());
     shader.setUniform2f("u_mouse", mouseX, mouseY);
     shader.setUniform2f("u_resolution", ofGetWidth(), ofGetHeight());
-   
-    // make a billboard
-    ofCircle(ofGetWidth() * .5, ofGetHeight() * .5, 250);
-    // Default shader pipeline
+    for ( int i = 0; i < 4; i++ ) {
+        for ( int j = 0; j < 4; j ++) {
+        
+    ofCircle(ofGetWidth() * .20 + i * 200, ofGetHeight() * .10 + j * 200 , 75);
+    
+        }
+    }
     shader.end();
+    
+    //cout << "This is MouseX: " << mouseX << endl;
+    //cout << "This is MouseY: " << mouseY << endl;
+    
+    ofSetColor(0);
+    ofDrawBitmapString(ofToString(ofGetFrameRate()), 50, 50);
+
 }
 
 //--------------------------------------------------------------
